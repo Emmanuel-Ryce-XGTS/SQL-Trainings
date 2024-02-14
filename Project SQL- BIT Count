@@ -1,0 +1,27 @@
+-- SQL project crypto count
+
+SELECT *
+FROM transactions;
+
+
+SELECT SUM(money_in) from transactions;
+
+SELECT SUM(money_out) from transactions;
+
+
+select count(money_in) from transactions;
+
+select count(money_in) from transactions where currency LIKE 'BIT';
+
+
+SELECT MAX(money_in), Max(money_out) from transactions;
+
+
+select AVG(money_in) from transactions where currency = 'ETH';
+
+Select date, AVG(money_in), AVG(money_out) from transactions group by date;
+
+Select date as 'Date', 
+ROUND(AVG(money_in), 2) AS 'AVG Buy', 
+ROUND(AVG(money_out), 2) AS 'AVG Sell'
+from transactions group by date
